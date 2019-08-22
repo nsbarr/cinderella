@@ -11,20 +11,21 @@ function setPermissions() {
   // find the doc you want to do this for, and paste in its ID
   // get ID from: https://docs.google.com/document/d/LONGIDSTRINGHERE/edit
 
-  var pumpkinDoc = DriveApp.getFileById('1qM0iTpxjq_3Q-tuM5LNZU8-XeNrObcDnuUNm4-TWVJ4');
-  var d = new Date();
-  var currentTime = d.toLocaleTimeString();
-
-  Logger.log(currentTime);
+  var pumpkinDoc = DriveApp.getFileById('1pDkYbLDteEQtk1V2ufR3Y9gghyiPxgwJRloRomQVCbk');
+  var currentTime = new Date();
   
-  var chatWindowBegins = new Date().toLocaleTimeString();
-  chatWindowBegins.setHours(12,05,0); // 12.05 pm
-  var chatWindowCloses = new Date().toLocaleTimeString();
-  chatWindowCloses.setHours(12,10,0); // 12.10 pm
+  var chatWindowBegins = new Date();
+  chatWindowBegins.setHours(20,45,0); // 8.45 pm
+  var chatWindowCloses = new Date();
+  chatWindowCloses.setHours(21,0,0); // 9.00 pm
+  
+  Logger.log("Current Time:" + currentTime);
+  Logger.log("Chat Window Begins:" + chatWindowBegins);
+  Logger.log("Chat Window Closes:" + chatWindowCloses);
 
-  if(currentTime >= chatWindowBegins && currentTime < chatWindowCloses ){
+  if((currentTime >= chatWindowBegins) && (currentTime < chatWindowCloses)){
       Logger.log("time to chat!");
-        //change overall editing permissions
+        //change overall editing permissions to anyone can edit 
       pumpkinDoc.setSharing(DriveApp.Access.ANYONE, DriveApp.Permission.EDIT);
   }
   else{
@@ -40,7 +41,7 @@ function setPermissions() {
             }
           }
     
-    //change overall editing permissions
+    //change overall editing permissions to anyone can view
     pumpkinDoc.setSharing(DriveApp.Access.ANYONE, DriveApp.Permission.VIEW)
       
     }
