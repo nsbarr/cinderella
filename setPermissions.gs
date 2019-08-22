@@ -17,10 +17,10 @@ function setPermissions() {
 
   Logger.log(currentTime);
   
-  var chatWindowBegins = new Date();
-  chatWindowBegins.setHours(11,55,0); // 11.55 am
-  var chatWindowCloses = new Date();
-  chatWindowCloses.setHours(12,30,0); // 12.30 pm
+  var chatWindowBegins = new Date().toLocaleTimeString();
+  chatWindowBegins.setHours(12,05,0); // 12.05 pm
+  var chatWindowCloses = new Date().toLocaleTimeString();
+  chatWindowCloses.setHours(12,10,0); // 12.10 pm
 
   if(currentTime >= chatWindowBegins && currentTime < chatWindowCloses ){
       Logger.log("time to chat!");
